@@ -39,21 +39,21 @@ module Prawn
         end
 
         def render_axes
-          prawn.stroke_color  = @canvas.theme.axes
-          prawn.fill_color  = @canvas.theme.axes
+          prawn.stroke_color  = '000000'#@canvas.theme.axes
+          prawn.fill_color  = '000000'#@canvas.theme.axes
 
-          if BigDecimal(min, 2) < BigDecimal(0)
-            bot_y = calculate_y_coord(min)
-          else
-            bot_y = 0
-          end
+          # if BigDecimal(min, 2) < BigDecimal(0)
+          #   bot_y = calculate_y_coord(min)
+          # else
+          #   bot_y = 0
+          # end
 
-          old = prawn.line_width 
+          old = prawn.line_width
           prawn.line_width = 1
 
-          prawn.stroke_horizontal_line(0, @plot_area_width, at: 0) 
-          prawn.stroke_vertical_line(bot_y, @plot_area_height, at: 0) 
-          prawn.fill_and_stroke_ellipse [ 0,0], 1
+          prawn.stroke_horizontal_line(0, @plot_area_width, at: 0)
+          prawn.stroke_vertical_line(0-@plot_area_height, @plot_area_height, at: 0)
+          prawn.fill_and_stroke_ellipse [0,0], 1
 
           add_y_axis_label(max)
           add_y_axis_label(min)
