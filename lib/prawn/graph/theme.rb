@@ -46,14 +46,15 @@ module Prawn
       private
 
       def cycle_color
-        if @series_map.empty?
-          @current_series_color = 0
-        else
-          next_color_index = @current_series_color + 1
-          next_color_index = 0 if next_color_index == @theme.series.size
-          @current_series_color = next_color_index
-        end
-        @theme.series[@current_series_color]
+        # if @series_map.empty?
+        #   @current_series_color = 0
+        # else
+        #   next_color_index = @current_series_color + 1
+        #   next_color_index = 0 if next_color_index == @theme.series.size
+        #   @current_series_color = next_color_index
+        # end
+        # @theme.series[@current_series_color]
+        @theme.series[3]
       end
 
     end

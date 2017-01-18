@@ -62,8 +62,8 @@ module Prawn
                 unless previous_value.zero? || this_value.zero?
                   prawn.stroke_line([previous_x_offset, previous_y], [ this_x_offset, this_y ])  
                   prawn.fill_color = @canvas.theme.markers
-                  prawn.fill_ellipse([ ( previous_x_offset), previous_y ], 1) 
-                  prawn.fill_ellipse([ ( this_x_offset), this_y ], 1)
+                  prawn.fill_ellipse([ ( previous_x_offset), previous_y ], 0.8)
+                  prawn.fill_ellipse([ ( this_x_offset), this_y ], 0.8)
                 end
 
                 if @series.mark_minimum?

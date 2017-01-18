@@ -27,6 +27,7 @@ module Prawn
         # @return [nil]
         #
         def draw
+          render_grid
           prawn.bounding_box(position, :width => layout.canvas_width, :height => layout.canvas_height, padding: 0) do
             prawn.save_graphics_state do         
               apply_theme! 
