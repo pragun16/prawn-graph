@@ -91,12 +91,10 @@ module Prawn
                   prawn.line_width = 0.5
                   prawn.fill_color = theme.series[i]
 
-                  
                   series_offset = series_offset * theme.font_sizes.series_key
 
                   title = series.title || "Series #{series_offset}"
                   top_position = (prawn.bounds.top - (series_offset * 3))
-
 
                   prawn.fill_and_stroke_rectangle([ theme.font_sizes.series_key, top_position ], theme.font_sizes.series_key, theme.font_sizes.series_key)
                   
@@ -106,6 +104,12 @@ module Prawn
               end
             end
           end
+        end
+
+        def render_grid
+          # prawn.define_grid(:columns => 10, :rows => 20, :gutter => 0)
+          # prawn.grid.show_all
+          GridRenderer.new(series, self).show_grid
         end
 
         # Verifies that we provide an array-like object of Prawn::Graph::Series instances to
