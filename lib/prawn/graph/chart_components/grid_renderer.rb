@@ -18,26 +18,23 @@ module Prawn
 
         def show_grid
           i = 0
-          # vertical grid lines
-          while i<36
-            grid_prawn.line_width = 0.5
-            grid_prawn.stroke_color = 'E1DBDB'
-            grid_prawn.dash(500)
-            grid_prawn.stroke_line([12 + 25 + i*10, 700 - 26], [12 + 25 + i*10, 700 - (@grid_plot_area_height * 2) - 20])
-            grid_prawn.undash
-            i = i + 1
-          end
-          # horizontal grid lines
           j = 0
-          while j<13
-            grid_prawn.line_width = 0.5
-            grid_prawn.stroke_color = 'E1DBDB'
-            grid_prawn.dash(500)
-            grid_prawn.stroke_line([12 + 25, 700 - 26 - j*10], [12 + 25 + @grid_plot_area_width, 700 - 26 - j*10])
-            grid_prawn.undash
-            j = j + 1
+          graph_start_coordinate = grid_canvas.options[:at]
+          grid_prawn.line_width = 0.5
+          grid_prawn.stroke_color = 'E1DBDB'
+          grid_prawn.dash(500)
+
+          # vertical grid lines
+          while i <= @grid_plot_area_width
+            grid_prawn.stroke_vertical_line(graph_start_coordinate[1] - 26, graph_start_coordinate[1] - 26 - (@grid_plot_area_height*2), at: i + graph_start_coordinate[0] + 21)
+            i = i + 5
           end
-          ap grid_canvas.options[:at]
+
+          # horizontal grid lines
+          while j <= @grid_plot_area_height * 2 # x2 because currently, height equals height of 1st quadrant only
+            grid_prawn.stroke_horizontal_line(graph_start_coordinate[0] + 20, @grid_plot_area_width + 30, at: graph_start_coordinate[1] - 27 - j)
+            j = j + 5
+          end
         end
 
       end
