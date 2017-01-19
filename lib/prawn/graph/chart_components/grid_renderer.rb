@@ -32,7 +32,7 @@ module Prawn
 
           # horizontal grid lines
           while j <= @grid_plot_area_height * 2 # x2 because currently, height equals height of 1st quadrant only
-            grid_prawn.stroke_horizontal_line(graph_start_coordinate[0] + 20, @grid_plot_area_width + 30, at: graph_start_coordinate[1] - 27 - j)
+            grid_prawn.stroke_horizontal_line(graph_start_coordinate[0] + 20, graph_start_coordinate[0] + @grid_plot_area_width + 20, at: graph_start_coordinate[1] - 27 - j)
             j = j + 5
           end
         end
