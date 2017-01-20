@@ -41,20 +41,12 @@ module Prawn
         end
       end
 
-      Default = {series:['EBEDEF', 'D6DBDF', '85929E', '34495E', '1B2631' ], title:'17202A', background:'FFFFFF', grid:'F2F4F4', axes:'000000', markers:'34495E', stroke_grid_lines:true, default:'333333', average:'34495E', max:'17202A', min:'17202A' }
-      
+      Default = {series:'000000', title:'17202A', background:'FFFFFF', grid:'F2F4F4', axes:'000000', markers:'000000', stroke_grid_lines:true, default:'333333', average:'34495E', max:'17202A', min:'17202A' }
+
       private
 
       def cycle_color
-        # if @series_map.empty?
-        #   @current_series_color = 0
-        # else
-        #   next_color_index = @current_series_color + 1
-        #   next_color_index = 0 if next_color_index == @theme.series.size
-        #   @current_series_color = next_color_index
-        # end
-        # @theme.series[@current_series_color]
-        @theme.series[3]
+        @theme.series
       end
 
     end

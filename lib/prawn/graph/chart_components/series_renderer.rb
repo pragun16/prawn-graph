@@ -51,7 +51,7 @@ module Prawn
           old = prawn.line_width
           prawn.line_width = 1
 
-          prawn.stroke_horizontal_line(0, @plot_area_width, at: 0)
+          # prawn.stroke_horizontal_line(0, @plot_area_width, at: 0)
           prawn.stroke_vertical_line(0-@plot_area_height, @plot_area_height, at: 0)
           prawn.fill_and_stroke_ellipse [0,0], 1
 
